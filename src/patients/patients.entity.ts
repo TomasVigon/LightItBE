@@ -11,7 +11,7 @@ export class PatientEntity {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ type: 'bigint' })
   phone: number;
 
   @Column({ type: 'longtext' })
