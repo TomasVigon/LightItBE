@@ -1,0 +1,22 @@
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001' # Expose NestJS API port
+    
+    depends_on:
+      - mysql_db
+
+  mysql_db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: patients_registration
+      MYSQL_USER: user_light_it
+      MYSQL_PASSWORD: "!1mYAcc0unt."
+    ports:
+      - '3307:3306'
